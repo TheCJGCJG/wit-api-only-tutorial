@@ -2,11 +2,11 @@ const fs = require('fs');
 const fetch = require('node-fetch');
 const {validateSamples} = require('../shared');
 
-const TAB = '	';
+const DELIMITER = ',';
 const data = fs
-  .readFileSync('initial-data/data.tsv', 'utf-8')
+  .readFileSync('data/data.csv', 'utf-8')
   .split('\r')
-  .map(row => row.split(TAB));
+  .map(row => row.split(DELIMITER));
 
 const samples = data.map(([text, value]) => {
   return {
